@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 
 
-var renderer, scene, camera, circle, skelet, particle;
+let renderer, scene, camera, planet, halo, asteroid;
 
 window.onload = function() {
   init();
@@ -23,58 +23,57 @@ function init() {
 
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
   camera.position.z = 400;
-  //const controls = new OrbitControls(camera, renderer.domElement);
+  //Mouse controls
+  const controls = new OrbitControls(camera, renderer.domElement);
   scene.add(camera);
 
-  circle = new THREE.Object3D();
-  skelet = new THREE.Object3D();
-  particle = new THREE.Object3D();
+  asteroid = new THREE.Object3D();
+  planet = new THREE.Object3D();
+  halo = new THREE.Object3D();
+  
+  scene.add(asteroid);
+  scene.add(planet);
+  scene.add(halo);
 
-  scene.add(circle);
-  scene.add(skelet);
-  scene.add(particle);
+  let asteroid_geometry = new THREE.TetrahedronGeometry(2, 0);
+  let planet_geometry = new THREE.IcosahedronGeometry(7, 1);
+  let halo_geometry = new THREE.IcosahedronGeometry(15, 1);
 
-  var geometry = new THREE.TetrahedronGeometry(2, 0);
-  var geom = new THREE.IcosahedronGeometry(7, 1);
-  var geom2 = new THREE.IcosahedronGeometry(15, 1);
-
-  var material = new THREE.MeshPhongMaterial({
+  let asteroid_material = new THREE.MeshPhongMaterial({
     color: 0xffffff,
     flatShading: true,
   });
-
-  for (var i = 0; i < 1000; i++) {
-    var mesh = new THREE.Mesh(geometry, material);
-    mesh.position.set(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize();
-    mesh.position.multiplyScalar(90 + (Math.random() * 700));
-    mesh.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
-    particle.add(mesh);
-  }
-
-  var mat = new THREE.MeshPhongMaterial({
+  let planet_material = new THREE.MeshPhongMaterial({
     color: 0xffffff,
     flatShading: true
   });
-
-  var mat2 = new THREE.MeshPhongMaterial({
+  let halo_material = new THREE.MeshPhongMaterial({
     color: 0xffffff,
     wireframe: true,
     side: THREE.DoubleSide
-
   });
 
-  var planet = new THREE.Mesh(geom, mat);
-  planet.scale.x = planet.scale.y = planet.scale.z = 16;
-  circle.add(planet);
+  for (let i = 0; i < 1000; i++) {
+    let asteroid_mesh = new THREE.Mesh(asteroid_geometry, asteroid_material);
+    asteroid_mesh.position.set(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize();
+    asteroid_mesh.position.multiplyScalar(150 + (Math.random() * 700));
+    asteroid_mesh.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
+    asteroid.add(asteroid_mesh);
+  }
 
-  var planet2 = new THREE.Mesh(geom2, mat2);
-  planet2.scale.x = planet2.scale.y = planet2.scale.z = 10;
-  skelet.add(planet2);
+  let planet_mesh = new THREE.Mesh(planet_geometry, planet_material);
+  planet_mesh.scale.x = planet_mesh.scale.y = planet_mesh.scale.z = 16;
+  planet.add(planet_mesh);
 
-  var ambientLight = new THREE.AmbientLight(0x999999 );
+  let halo_mesh = new THREE.Mesh(halo_geometry, halo_material);
+  halo_mesh.scale.x = halo_mesh.scale.y = halo_mesh.scale.z = 10;
+  halo.add(halo_mesh);
+
+  //Lighting
+  let ambientLight = new THREE.AmbientLight(0x999999 );
   scene.add(ambientLight);
   
-  var lights = [];
+  let lights = [];
   lights[0] = new THREE.DirectionalLight( 0xffffff, 1 );
   lights[0].position.set( 1, 0, 0 );
   lights[1] = new THREE.DirectionalLight( 0x11E8BB, 1 );
@@ -85,7 +84,7 @@ function init() {
   scene.add( lights[1] );
   scene.add( lights[2] );
   
-
+  //Resizing
   window.addEventListener('resize', onWindowResize, false);
 
 };
@@ -99,12 +98,12 @@ function onWindowResize() {
 function animate() {
   requestAnimationFrame(animate);
 
-  particle.rotation.x += 0.0000;
-  particle.rotation.y -= 0.0040;
-  circle.rotation.x -= 0.0020;
-  circle.rotation.y -= 0.0030;
-  skelet.rotation.x -= 0.0010;
-  skelet.rotation.y += 0.0020;
+  asteroid.rotation.x += 0.0000;
+  asteroid.rotation.y -= 0.0020;
+  planet.rotation.x -= 0.0010;
+  planet.rotation.y -= 0.0015;
+  halo.rotation.x -= 0.0005;
+  halo.rotation.y += 0.0010;
   renderer.clear();
 
   renderer.render( scene, camera )
