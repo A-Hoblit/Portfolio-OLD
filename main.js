@@ -21,16 +21,18 @@ function init() {
 
   scene = new THREE.Scene();
 
+  // Camera
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
   camera.position.z = 400;
   //Mouse controls
   const controls = new OrbitControls(camera, renderer.domElement);
   scene.add(camera);
 
+
+  // Geometry
   asteroid = new THREE.Object3D();
   planet = new THREE.Object3D();
   halo = new THREE.Object3D();
-  
   scene.add(asteroid);
   scene.add(planet);
   scene.add(halo);
@@ -69,7 +71,7 @@ function init() {
   halo_mesh.scale.x = halo_mesh.scale.y = halo_mesh.scale.z = 10;
   halo.add(halo_mesh);
 
-  //Lighting
+  // Lighting
   let ambientLight = new THREE.AmbientLight(0x999999 );
   scene.add(ambientLight);
   
@@ -84,9 +86,7 @@ function init() {
   scene.add( lights[1] );
   scene.add( lights[2] );
   
-  //Resizing
   window.addEventListener('resize', onWindowResize, false);
-
 };
 
 function onWindowResize() {
@@ -99,11 +99,11 @@ function animate() {
   requestAnimationFrame(animate);
 
   asteroid.rotation.x += 0.0000;
-  asteroid.rotation.y -= 0.0020;
-  planet.rotation.x -= 0.0010;
-  planet.rotation.y -= 0.0015;
-  halo.rotation.x -= 0.0005;
-  halo.rotation.y += 0.0010;
+  asteroid.rotation.y -= 0.0010;
+  planet.rotation.x -= 0.0005;
+  planet.rotation.y -= 0.00075;
+  halo.rotation.x -= 0.00025;
+  halo.rotation.y += 0.0005;
   renderer.clear();
 
   renderer.render( scene, camera )
