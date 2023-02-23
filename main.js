@@ -12,12 +12,16 @@ window.onload = function() {
 }
 
 function init() {
-  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer = new THREE.WebGLRenderer({
+    canvas: document.querySelector('canvas'), 
+    antialias: true, 
+    alpha: true 
+  });
   renderer.setPixelRatio((window.devicePixelRatio) ? window.devicePixelRatio : 1);
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.autoClear = false;
   renderer.setClearColor(0x000000, 0.0);
-  document.getElementById('canvas').appendChild(renderer.domElement);
+  //document.getElementById('canvas').appendChild(renderer.domElement);
 
   scene = new THREE.Scene();
 
