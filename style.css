@@ -19,3 +19,13 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.page-wrapper {
+	padding: 0px;
+	margin: 12px 48px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: calc(100% - 32*48px);
+	word-wrap: break-word;
+}
