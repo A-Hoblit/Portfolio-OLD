@@ -15,17 +15,64 @@ canvas {
   overflow: hidden;
 }
 
-body {
-  margin: 0;
-  padding: 0;
+.dark_mode canvas{
+  background: #410064; /* Old browsers */
+  background: -moz-linear-gradient(top,  #09745d 0%, #410064 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #09745d 0%,#410064 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #09745d 0%,#410064 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#09745d', endColorstr='#410064',GradientType=0 ); /* IE6-9 */
 }
 
-.page-wrapper {
-	padding: 0px;
-	margin: 12px 48px;
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: calc(100% - 32*48px);
-	word-wrap: break-word;
+.textbox {
+  font-size: 1rem;
+  padding: 1rem;
+  background-color: rgba(247,247,247,0.75);
+  color: rgba(18,18,18,1);
+}
+
+.dark_mode .textbox{
+  font-size: 1rem;
+  padding: 1rem;
+  background-color: rgba(18,18,18,0.25);
+  color: rgba(247,247,247,1);
+}
+
+#dark_mode_toggle {
+  position: absolute;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 99;
+}
+
+.landing {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.content_grid {
+  position: absolute;
+  top: 150%;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  row-gap: 100vh;
+}
+
+.left_block {
+  grid-column: 2 / span 6;
+
+}
+
+.center_block {
+  grid-column: 4 / span 6;
+  
+}
+
+.right_block {
+  grid-column: 6 / span 6;
+
 }

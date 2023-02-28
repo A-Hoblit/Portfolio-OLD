@@ -29,6 +29,7 @@ scene.add(camera);
 
 
 // Geometry
+//=============================================================================
 asteroid = new THREE.Object3D();
 planet = new THREE.Object3D();
 halo = new THREE.Object3D();
@@ -69,8 +70,10 @@ planet.add(planet_mesh);
 let halo_mesh = new THREE.Mesh(halo_geometry, halo_material);
 halo_mesh.scale.x = halo_mesh.scale.y = halo_mesh.scale.z = 10;
 halo.add(halo_mesh);
+//=============================================================================
 
 // Lighting
+//=============================================================================
 let ambientLight = new THREE.AmbientLight(0x999999 );
 scene.add(ambientLight);
 
@@ -87,6 +90,7 @@ lights[2].intensity = 1
 scene.add( lights[0] );
 scene.add( lights[1] );
 scene.add( lights[2] );
+//=============================================================================
 
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
@@ -115,5 +119,11 @@ function updateCamera(ev) {
   camera.position.z = initial_z_pos + window.scrollY / 10.0;
 }
 window.addEventListener("scroll", updateCamera);
+
+function toggleDarkMode() {
+  console.log("here!")
+  let element = document.canvas;
+  element.classList.toggle("dark_mode");
+}
 
 
