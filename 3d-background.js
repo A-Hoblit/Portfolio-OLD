@@ -120,10 +120,6 @@ function updateCamera(ev) {
 }
 window.addEventListener("scroll", updateCamera);
 
-function toggleDarkMode() {
-  console.log("here!")
-  let element = document.canvas;
-  element.classList.toggle("dark_mode");
-}
+
 
 
