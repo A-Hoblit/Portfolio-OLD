@@ -40,26 +40,19 @@ canvas {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#09745d', endColorstr='#410064',GradientType=0 ); /* IE6-9 */
 }
 
-.textbox {
-  font-size: 1rem;
-  padding: 1rem;
-  background-color: rgba(247,247,247,0.75);
-  color: rgba(18,18,18,1);
-}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-.dark_mode .textbox{
-  font-size: 1rem;
-  padding: 1rem;
-  background-color: rgba(18,18,18,0.25);
-  color: rgba(247,247,247,1);
-}
+  padding: 35px;
 
-#dark_mode_toggle {
-  position: absolute;
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 10;
+  border: 1px solid rgba(247, 247, 247, .25);
+  border-radius: 20px;
+  background-color: rgba(247, 247, 247, 0.45);
+  box-shadow: 0 0 10px 1px rgba(18, 18, 18, 0.25);
+
+  backdrop-filter: blur(15px);
 }
 
 .landing {
@@ -67,7 +60,6 @@ canvas {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
 }
 
 .content_grid {
@@ -81,22 +73,40 @@ canvas {
 
 .left_block {
   grid-column: 2 / span 6;
-
 }
 
 .center_block {
   grid-column: 4 / span 6;
-  
 }
 
 .right_block {
   grid-column: 6 / span 6;
-
 }
 
 .fadeIn {
   animation: fadeIn 1s;
 }
+
+.card_grid {
+  position: relative;
+  display: grid;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 html {
