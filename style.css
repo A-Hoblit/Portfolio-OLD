@@ -45,7 +45,7 @@ canvas {
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 35px;
+  padding: 25px;
 
   border: 1px solid rgba(247, 247, 247, .25);
   border-radius: 20px;
@@ -68,11 +68,11 @@ canvas {
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  row-gap: 100vh;
+  row-gap: 90vh;
 }
 
 .left_block {
-  grid-column: 2 / span 6;
+  grid-column:  2 / span 6;
 }
 
 .center_block {
@@ -87,27 +87,32 @@ canvas {
   animation: fadeIn 1s;
 }
 
-.card_grid {
-  position: relative;
-  display: grid;
+img {
+  max-width: 100%;
+  object-fit: contain;
+  align-self: center;
+  display: block;
+  border-radius: 40px;
 }
 
+.two_column_card {
+  display:block;
+}
 
+.two_column_card > * {
+  padding-right: 1rem;
+}
 
+@media (min-width:768px) {
+  .two_column_card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.red {
+  border: 3px solid red;
+}
 
 html {
   visibility: visible;
