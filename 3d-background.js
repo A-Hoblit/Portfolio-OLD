@@ -2,10 +2,8 @@ import './style.css'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-
 let renderer, scene, camera, planet, halo, asteroid;
 let initial_z_pos = 115
-
 
 renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('canvas'), 
@@ -16,7 +14,6 @@ renderer.setPixelRatio((window.devicePixelRatio) ? window.devicePixelRatio : 1);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.autoClear = false;
 renderer.setClearColor(0x000000, 0.0);
-//document.getElementById('canvas').appendChild(renderer.domElement);
 
 scene = new THREE.Scene();
 
