@@ -22,7 +22,7 @@ scene = new THREE.Scene();
 
 // Camera
 camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
-camera.position.z = initial_z_pos;
+camera.position.z = initial_z_pos + window.scrollY / 10.0;
 //Mouse controls
 //const controls = new OrbitControls(camera, renderer.domElement);
 scene.add(camera);
