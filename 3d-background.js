@@ -65,10 +65,12 @@ for (let i = 0; i < 1000; i++) {
 
 let planet_mesh = new THREE.Mesh(planet_geometry, planet_material);
 planet_mesh.scale.x = planet_mesh.scale.y = planet_mesh.scale.z = 16;
+planet_mesh.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
 planet.add(planet_mesh);
 
 let halo_mesh = new THREE.Mesh(halo_geometry, halo_material);
 halo_mesh.scale.x = halo_mesh.scale.y = halo_mesh.scale.z = 10;
+halo_mesh.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
 halo.add(halo_mesh);
 //=============================================================================
 
