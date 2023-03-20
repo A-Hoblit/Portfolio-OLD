@@ -7,8 +7,13 @@
   z-index: 99;
   background-color: rgb(247,247,247);
   opacity: 0;
+  pointer-events: none;
 
   animation: fadeIn 2s;
+}
+
+.fadeIn {
+  animation: fadeIn 1s;
 }
 
 @keyframes fadeIn {
@@ -32,19 +37,11 @@ canvas {
   overflow: hidden;
 }
 
-.dark_mode canvas{
-  background: #410064; /* Old browsers */
-  background: -moz-linear-gradient(top,  #09745d 0%, #410064 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,  #09745d 0%,#410064 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  #09745d 0%,#410064 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#09745d', endColorstr='#410064',GradientType=0 ); /* IE6-9 */
+header {
+  font-size: 130%;
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
   padding: 25px;
 
   border: 1px solid rgba(247, 247, 247, .25);
@@ -52,7 +49,7 @@ canvas {
   background-color: rgba(247, 247, 247, 0.45);
   box-shadow: 0 0 10px 1px rgba(18, 18, 18, 0.25);
 
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(10px);
 }
 
 .landing {
@@ -62,58 +59,67 @@ canvas {
   transform: translate(-50%, -50%);
 }
 
-.content_grid {
+.project_1 {
   position: absolute;
+  left: 50%;
   top: 150%;
-
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  row-gap: 90vh;
+  transform: translate(-50%, -50%);
 }
 
-.left_block {
-  grid-column:  2 / span 6;
+.project_2 {
+  position: absolute;
+  left: 50%;
+  top: 250%;
+  transform: translate(-50%, -50%);
 }
 
-.center_block {
-  grid-column: 4 / span 6;
+.project_3 {
+  position: absolute;
+  left: 50%;
+  top: 350%;
+  transform: translate(-50%, -50%);
 }
 
-.right_block {
-  grid-column: 6 / span 6;
+.project_4 {
+  position: absolute;
+  left: 50%;
+  top: 500%;
+  padding-bottom: 25%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
 }
 
-.fadeIn {
-  animation: fadeIn 1s;
+.single_content {
+  max-width: 608px;
+  min-width: 304px;
 }
 
 img {
-  max-width: 100%;
+  width: 304px;
   object-fit: contain;
   align-self: center;
   display: block;
-  border-radius: 40px;
+  border-radius: 20px;
 }
 
-.two_column_card {
+.two_column {
   display:block;
 }
 
-.two_column_card > * {
-  padding-right: 1rem;
+.two_column > * {
+  padding: 0.5rem;
+  width: 304px;
 }
 
 @media (min-width:768px) {
-  .two_column_card {
+  .two_column {
       display: grid;
       grid-template-columns: 1fr 1fr;
   }
 }
 
-.red {
-  border: 3px solid red;
-}
-
+/* important for loading content before showing it */
 html {
   visibility: visible;
   opacity: 1;
