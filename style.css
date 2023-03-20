@@ -91,12 +91,12 @@ header {
 }
 
 .single_content {
-  max-width: 608px;
-  min-width: 304px;
+  max-width: 604px;
+  min-width: 302px;
 }
 
 img {
-  width: 304px;
+  width: 302px;
   object-fit: contain;
   align-self: center;
   display: block;
@@ -109,7 +109,7 @@ img {
 
 .two_column > * {
   padding: 0.5rem;
-  width: 304px;
+  width: 302px;
 }
 
 @media (min-width:768px) {
