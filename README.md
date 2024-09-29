@@ -1,4 +1,4 @@
-REPLACED: andrewhoblit.com
+REPLACED: [andrewhoblit.com](https://www.andrewhoblit.com/)
 
 Hosted at [GitHub Pages](https://a-hoblit.github.io/Portfolio/).
 
